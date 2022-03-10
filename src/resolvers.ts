@@ -2,6 +2,12 @@ interface User {
   id: number
   name: string
   age: number
+  companyId: number
+}
+
+interface Company {
+  id: number
+  name: string
 }
 
 let dummyUsers = Array.from({ length: 20 }, (_, idx) => {
@@ -9,8 +15,16 @@ let dummyUsers = Array.from({ length: 20 }, (_, idx) => {
     id: idx + 1,
     name: `Sample User ${idx + 1}`,
     age: Math.floor(Math.random() * 20),
+    companyId: (idx % 3) + 1,
   }
-})
+}) as User[]
+
+let dummyCompanies = Array.from({ length: 3 }, (_, idx) => {
+  return {
+    id: idx + 1,
+    name: `Sample Company ${idx + 1}`,
+  }
+}) as Company[]
 
 const resolvers = {
   Query: {
@@ -34,6 +48,12 @@ const resolvers = {
     },
     deleteUser: (_: unknown, { id }: { id: number }) => {
       dummyUsers = dummyUsers.filter((user) => user.id !== id)
+    },
+  },
+
+  User: {
+    company: (parent: User) => {
+      return dummyCompanies.find((company) => company.id === parent.companyId)
     },
   },
 }

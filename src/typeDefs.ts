@@ -1,10 +1,16 @@
 import { gql } from 'apollo-server'
 
 const typeDefs = gql`
+  type Company {
+    id: Int
+    name: String
+  }
+
   type User {
     id: Int
     name: String
     age: Int
+    company: Company
   }
 
   input NewUser {
@@ -15,6 +21,7 @@ const typeDefs = gql`
   type Query {
     user(name: String!): User
     users: [User]
+    company: Company
   }
 
   type Mutation {
