@@ -20,7 +20,10 @@
   "homepage": "https://github.com/possible819/graphql-sample#readme",
   "dependencies": {
     "apollo-server": "^3.6.3",
-    "graphql": "^16.3.0"
+    "class-validator": "^0.13.2",
+    "graphql": "^15.8.0",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15",

@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "es2018",
     "module": "commonjs",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "emitDecoratorMetadata": true, // decorator를 사용하기 위해 true로 설정
+    "experimentalDecorators": true // decorator를 사용하기 위해 true로 설정
   }
 }
